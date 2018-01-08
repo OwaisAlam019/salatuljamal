@@ -3,7 +3,7 @@ RewriteEngine On
 # If your URL is www.example.com/, use / 
 # If your URL is www.example.com/site_folder/, use /site_folder/
 
-RewriteBase /beauty-spot/
+RewriteBase /salat-ul-jamaal/
 # Do not enable rewriting for files or directories that exist 
 RewriteCond %{request_filename} !-f 
 RewriteCond %{request_filename} !-d

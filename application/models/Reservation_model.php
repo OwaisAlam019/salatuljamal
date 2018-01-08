@@ -152,7 +152,7 @@ $this->db->delete('client_message');
     
     public function get_details($id)
     {
-        $this->db->select('reservations.notes as notes,c.name as name,c.email as email,c.phone as phone,cosmetics.facial as facial,cosmetics.eyebrow as eyebrow,cosmetics.microdermabrasion as micro,cosmetics.acne_treatment as acne,hd.wash as wash,hd.cut_finish as cut_finish,hd.blow_dries as blow,hd.hair_colouring as hairclr');
+        $this->db->select('reservations.notes as notes,reservations.date,reservations.time,c.name as name,c.email as email,c.phone as phone,cosmetics.facial as facial,cosmetics.eyebrow as eyebrow,cosmetics.microdermabrasion as micro,cosmetics.acne_treatment as acne,hd.wash as wash,hd.cut_finish as cut_finish,hd.blow_dries as blow,hd.hair_colouring as hairclr');
         $this->db->from('reservations');
         $this->db->where('reservations.id',$id);
         $this->db->join('customer as c', 'c.id = reservations.customer_id');

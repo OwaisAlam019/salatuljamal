@@ -22,20 +22,15 @@ class Admin extends CI_Controller
      //authentication
     function login()
     {
-        if($this->input->post()!==NULL)
+        if(isset($_POST))
         {
+            if($_POST['username']=='admin' && $_POST['password']=='123'){
+            $_SESSION["username"]=$_POST['username'];
+            $_SESSION["password"]=$_POST['password'];
             $this->load->model("reservation_model");
-            $data['login']=$this->reservation_model->login($this->input->post());
-            
-            if($data['login']==true)
-            {
-                $this->session->set_userdata('username', $this->input->post('username'));
-                $this->session->set_userdata('password', $this->input->post('password'));
-                $this->session->set_flashdata('loginflag', 'true');
-                $data['reservations']=$this->reservation_model->get_reservations();
-                $this->load->view('admin/header');
-                $this->load->view('admin/reservations',$data);
-                $this->load->view('admin/footer',$data);
+            $this->load->view('admin/header');
+            $this->load->view('admin/reservations',$data);
+            $this->load->view('admin/footer',$data);
             }
             else
             {
@@ -62,10 +57,10 @@ class Admin extends CI_Controller
         $this->load->model("reservation_model");
         $data['details']=$this->reservation_model->get_details($id);
         $details=$data['details'];
-        echo "<pre>";
-        var_dump($details);
-        echo "</pre>";
-        exit();
+        // echo "<pre>";
+        // var_dump($details);
+        // echo "</pre>";
+        // exit();
         $this->load->view('admin/header');
         $this->load->view('admin/details',$data);
         $this->load->view('admin/footer');   

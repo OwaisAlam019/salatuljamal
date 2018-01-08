@@ -10,7 +10,7 @@
 
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.css">
 	<!-- Custom Stylesheet -->
-	<link rel="stylesheet" href="../../../../beauty-spot/assets/css/style.css">
+	<link rel="stylesheet" href="<?=base_url()?>/assets/css/style.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
