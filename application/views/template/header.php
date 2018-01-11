@@ -16,13 +16,7 @@
 		<link rel="stylesheet" type="text/css" href="<?=base_url()?>assets/library/css/style.css">
         <link rel="stylesheet" type="text/css" href="<?=base_url()?>assets/library/css/skin/default.css">
 		<link rel="stylesheet" type="text/css" href="<?=base_url()?>assets/library/css/custom.css">
-        <link rel=stylesheet type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.css">
-		<!-- STYLESHEETS : end -->
-
-        <!--[if lte IE 8]>
-			<link rel="stylesheet" type="text/css" href="<?=base_url()?>assets/library/css/oldie.css">
-			<script src="<?=base_url()?>assets/library/js/respond.min.js" type="text/javascript"></script>
-        <![endif]-->
+		<link rel="stylesheet" type="text/css" href="<?=base_url()?>dist/sweetalert.css">
 		<script src="<?=base_url()?>assets/library/js/modernizr.custom.min.js" type="text/javascript"></script>
 
 	</head>

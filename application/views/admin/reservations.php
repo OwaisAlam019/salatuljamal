@@ -1,14 +1,32 @@
-  <section class="content">
+ 
+
+  <!-- Content Wrapper. Contains page content -->
+  <div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+      <h1>
+        Reservtions
+<!--         <small>advanced tables</small>
+ -->      </h1>
+     <!--  <ol class="breadcrumb">
+        <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+        <li><a href="#">Tables</a></li>
+        <li class="active">Data tables</li>
+      </ol> -->
+    </section>
+
+    <!-- Main content -->
+    <section class="content">
       <div class="row">
         <div class="col-xs-12">
           <div class="box">
             <div class="box-header">
-              <h3 class="box-title">Reservation List</h3>
+              <h3 class="box-title">List Of Reservations</h3>
             </div>
             <!-- /.box-header -->
             <div class="box-body">
-              <table id="example2" class="table table-bordered table-hover">
-                <thead>
+              <table  class="table table-bordered table-striped">
+               <thead>
                 <tr>
                   <th>no</th>
                   <th>Customer</th>
@@ -24,22 +42,20 @@
                         <td><?php echo $row['customer']; ?></td>
                         <td><?php echo $row['date']; ?></td>
                         <td><?php echo $row['time']; ?></td>
-                        <td><a href=<?php echo base_url()?>admin/details/<?php echo $row['id']?>><button class="btn btn-primary">view details</button></a></td>
+                        <td><a href=<?php echo base_url()?>reservations/details/<?php echo $row['id']?>><button class="btn btn-primary">view details</button></a></td>
                     </tr>
                     <?php endforeach; ?>
                   </tbody>
-                
               </table>
-                <a href=<?php echo base_url()?>admin/logout><button class="btn btn-primary">Logout</button></a>
             </div>
             <!-- /.box-body -->
           </div>
-          <!-- /.box -->
-
-         
           <!-- /.box -->
         </div>
         <!-- /.col -->
       </div>
       <!-- /.row -->
     </section>
+    <!-- /.content -->
+  </div>
+  <!-- /.content-wrapper -->

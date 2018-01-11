@@ -3,7 +3,7 @@
 
 <head>
 	<meta charset="utf-8">
-	<title>Daily UI - Day 1 Sign In</title>
+	<title>صالة الجمال - BEAUTY LAUNGE Sign In</title>
 
 	<!-- Google Fonts -->
 	<link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700|Lato:400,100,300,700,900' rel='stylesheet' type='text/css'>
@@ -19,13 +19,13 @@
 <body>
 	<div class="container">
 		<div class="top">
-			<h1 id="title" class="hidden"><span id="logo">BEAUTYSPOT<br><span>ADMIN</span></span></h1>
+			<h1 id="title" class="hidden"><span id="logo">BEAUTY LAUNGE<br><span>ADMIN</span></span></h1>
 		</div>
 		<div class="login-box animated fadeInUp">
 			<div class="box-header">
 				<h2 style="color:white">Log In</h2>
 			</div>
-			<form  class=" m-ajax-form" action="<?=base_url()?>admin/login" method="post">
+			<form  class=" m-ajax-form" action="<?=base_url()?>admin" method="post">
             <label for="username" >Username</label>
 			<br/>
 			<input type="text" name="username" id="username">
@@ -38,12 +38,12 @@
 			<br/>
             </form>
             <p class="alert alert-warning" style="color:red">
-                <?php
-    if($login=='false')
+      <!--           <?php
+   // if($login=='false')
     { 
-    echo ('wrong id or password!.)');
+  // echo ('wrong id or password!.)');
     }
-    ?>
+    ?> -->
             </p>
 			<a href="#"><p class="small">Forgot your password?</p></a>
 		</div>

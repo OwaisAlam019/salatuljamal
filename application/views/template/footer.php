@@ -1,3 +1,4 @@
+
 			<!-- FOOTER : begin -->
 			<footer id="footer">
 				<div class="container">
@@ -56,21 +57,18 @@
 		<script src="<?=base_url()?>assets/library/js/jquery-ui-1.10.4.custom.min.js" type="text/javascript"></script>
 		<script src="<?=base_url()?>assets/library/js/jquery.ba-outside-events.min.js" type="text/javascript"></script>
 		<script src="<?=base_url()?>assets/library/js/owl.carousel.min.js" type="text/javascript"></script><!-- Carousel -->
-		<script src="<?=base_url()?>assets/library/js/jquery.magnific-popup.min.js" type="text/javascript"></script><!-- Lightbox -->
-<!--		<script src="<?=base_url()?>assets/library/twitter/jquery.tweet.min.js" type="text/javascript"></script>-->
-<!-- Twitter Feed -->
+		<script src="<?=base_url()?>assets/library/js/jquery.magnific-popup.min.js" type="text/javascript"></script>
+		<!-- bootstrap time picker -->
 		<script src="<?=base_url()?>assets/library/js/library.js" type="text/javascript"></script>
 		<script src="<?=base_url()?>assets/library/js/scripts.js" type="text/javascript"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert-dev.min.js"></script>
-<!-- <script>  
-		// var status = <?= json_encode($status) ?> ;
-		// if(status=='inserted'){
-		// swal("reservation registered!", "Thankyou for choosing us!", "success")
-		// }
-
-</script> -->
+<!--         <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert-dev.min.js"></script>
+ -->        <script src="<?=base_url()?>dist/sweetalert.min.js"></script> 
 
 <script type="text/javascript">
+
+var submitted = <?= (isset($submitted)) ? json_encode($submitted) : "null";?>;
+   if(submitted)
+   	swal("Success",submitted, "success");
 
 var pathname = window.location.pathname;
 	$('li.nav-btn > span > a[href="http://localhost'+pathname+'"]').parent().parent().addClass('m-active');

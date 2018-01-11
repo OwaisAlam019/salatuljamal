@@ -75,7 +75,7 @@
 								<div class="container">
 									<h2>Our Services</h2>
 									<p class="subtitle">We offer a wide range of beauty services</p>
-									<p class="more"><a href="services.php" class="c-button m-type-2">See all Services</a></p>
+									<p class="more"><a href="<?=base_url()?>main/pages/services" class="c-button m-type-2">See all Services</a></p>
 								</div>
 							</header>
 							<!-- SECTION HEADER : end -->
@@ -89,9 +89,9 @@
 											<!-- SERVICE : begin -->
 											<div class="c-service">
 												<div class="service-image">
-													<a href="services.php"><img src="<?=base_url()?>assets/images/service_01.jpg" alt=""></a>
+													<a href="<?=base_url()?>main/pages/services#cosmetics"><img src="<?=base_url()?>assets/images/service_01.jpg" alt=""></a>
 												</div>
-												<h3 class="service-title"><a href="services.php">Cosmetics</a></h3>
+												<h3 class="service-title"><a href="<?=base_url()?>main/pages/services">Cosmetics</a></h3>
 												<div class="service-description">
 													<p>Facials, Eyebrow & Eyelashes, Microdermabrasion, Acne Treatments, Anti-Aging</p>
 												</div>
@@ -104,9 +104,9 @@
 											<!-- SERVICE : begin -->
 											<div class="c-service">
 												<div class="service-image">
-													<a href="services.php"><img src="<?=base_url()?>assets/images/service_02.jpg" alt=""></a>
+													<a href="<?=base_url()?>main/pages/services#hairdressing"><img src="<?=base_url()?>assets/images/service_02.jpg" alt=""></a>
 												</div>
-												<h3 class="service-title"><a href="services.php">Hairdressing</a></h3>
+												<h3 class="service-title"><a href="<?=base_url()?>main/pages/services#hairdressing">Hairdressing</a></h3>
 												<div class="service-description">
 													<p>Wash, Cut & Finish, Blow Dries, Hair Colouring & Highlights, Evening Hairdressing</p>
 												</div>
@@ -119,9 +119,9 @@
 											<!-- SERVICE : begin -->
 											<div class="c-service">
 												<div class="service-image">
-													<a href="services.php#body-treatments"><img src="<?=base_url()?>assets/images/service_03.jpg" alt=""></a>
+													<a href="<?=base_url()?>main/pages/services.php#body-treatments"><img src="<?=base_url()?>assets/images/service_03.jpg" alt=""></a>
 												</div>
-												<h3 class="service-title"><a href="services.php">Body Treatments</a></h3>
+												<h3 class="service-title"><a href="main/pages/services">Body Treatments</a></h3>
 												<div class="service-description">
 													<p>Body Wraps, Body Exfoliation Treatments, Cellulite Treatments, Lipo Laser, Depilation</p>
 												</div>
@@ -134,9 +134,9 @@
 											<!-- SERVICE : begin -->
 											<div class="c-service">
 												<div class="service-image">
-													<a href="services.php"><img src="<?=base_url()?>assets/images/service_04.jpg" alt=""></a>
+													<a href="<?=base_url()?>main/pages/services#massages"><img src="<?=base_url()?>assets/images/service_04.jpg" alt=""></a>
 												</div>
-												<h3 class="service-title"><a href="services.php">Massages</a></h3>
+												<h3 class="service-title"><a href="<?=base_url()?>main/pages/services#massages">Massages</a></h3>
 												<div class="service-description">
 													<p>Exotic Massages, Swedish Massage, Hot Stone Massage, Aromatherapy Massage</p>
 												</div>
@@ -144,21 +144,21 @@
 											<!-- SERVICE : end -->
 
 										</div>
-										<div class="service-list-item">
+										<!-- <div class="service-list-item"> -->
 
 											<!-- SERVICE : begin -->
-											<div class="c-service">
+											<!-- <div class="c-service">
 												<div class="service-image">
-													<a href="services.php"><img src="<?=base_url()?>assets/images/service_05.jpg" alt=""></a>
+													<a href="<?=base_url()?>main/pages/services"><img src="<?=base_url()?>assets/images/service_05.jpg" alt=""></a>
 												</div>
-												<h3 class="service-title"><a href="services.php">Nails</a></h3>
+												<h3 class="service-title"><a href="<?=base_url()?>main/pages/services">Nails</a></h3>
 												<div class="service-description">
 													<p>Nail Art, Paraffin Wax Treatment, Shellac Manicure, Gel Nails, French Manicure</p>
 												</div>
-											</div>
+											</div> -->
 											<!-- SERVICE : end -->
 
-										</div>
+										<!-- </div> -->
 									</div>
 								</div>
 							</div>
@@ -175,7 +175,7 @@
 								<div class="container">
 									<h2>Gallery</h2>
 									<p class="subtitle">See how it looks inside our studio</p>
-									<p class="more"><a href="gallery.php" class="c-button m-type-2">Enter Gallery</a></p>
+									<p class="more"><a href="<?=base_url()?>main/pages/gallery" class="c-button m-type-2">Enter Gallery</a></p>
 								</div>
 							</header>
 							<!-- SECTION HEADER : end -->

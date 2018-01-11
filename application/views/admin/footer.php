@@ -1,57 +1,121 @@
-</div>
-<footer class="main-footer">
+  <footer class="main-footer">
     <div class="pull-right hidden-xs">
-      <b>Version</b> 2.3.7
+      <!-- <b>Version</b> 2.4.0 -->
     </div>
-    <strong>Copyright &copy; 2017-2018 <a href="http://itretina.com">IT Retina</a>.</strong> All rights
+    <strong>Copyright &copy; 2016-2018 <a href="https://itretina.com">ITRETINA</a>.</strong> All rights
     reserved.
-  </footer>
 
-
-
-<!-- jQuery 2.2.3 -->
-<script src="plugins/jQuery/jquery-2.2.3.min.js"></script>
-<!-- jQuery UI 1.11.4 -->
-<script src="https://code.jquery.com/ui/1.11.4/jquery-ui.min.js"></script>
-<!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
-<script>
-  $.widget.bridge('uibutton', $.ui.button);
-</script>
-<!-- Bootstrap 3.3.6 -->
-<script src="bootstrap/js/bootstrap.min.js"></script>
-<!-- Morris.js charts -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js"></script>
-<script src="plugins/morris/morris.min.js"></script>
-<!-- Sparkline -->
-<script src="plugins/sparkline/jquery.sparkline.min.js"></script>
-<!-- jvectormap -->
-<script src="plugins/jvectormap/jquery-jvectormap-1.2.2.min.js"></script>
-<script src="plugins/jvectormap/jquery-jvectormap-world-mill-en.js"></script>
-<!-- jQuery Knob Chart -->
-<script src="plugins/knob/jquery.knob.js"></script>
-<!-- daterangepicker -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.11.2/moment.min.js"></script>
-<script src="plugins/daterangepicker/daterangepicker.js"></script>
-<!-- datepicker -->
-<script src="plugins/datepicker/bootstrap-datepicker.js"></script>
-<!-- Bootstrap WYSIHTML5 -->
-<script src="plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.all.min.js"></script>
-<!-- Slimscroll -->
-<script src="plugins/slimScroll/jquery.slimscroll.min.js"></script>
-<!-- FastClick -->
-<script src="plugins/fastclick/fastclick.js"></script>
-<!-- AdminLTE App -->
-<script src="dist/js/app.min.js"></script>
+    <!-- jQuery 3 -->
+<script src="<?=base_url()?>assets/library/js/jquery-1.9.1.min.js" type="text/javascript"></script>
+<script src="<?=base_url()?>bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+<script src="<?=base_url()?>dist/js/adminlte.min.js"></script>
+<script src="<?=base_url()?>/plugins/timepicker/bootstrap-timepicker.min.js"></script>
+<script src="<?=base_url()?>bower_components/Chart.js/Chart.js"></script>
+<script src="<?=base_url()?>bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
+<script src="<?=base_url()?>bower_components/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js"></script>
 <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
-<script src="dist/js/pages/dashboard.js"></script>
+<script src="<?=base_url()?>dist/js/pages/dashboard2.js"></script>
 <!-- AdminLTE for demo purposes -->
-<script src="dist/js/demo.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert-dev.min.js"></script>
-<script>        
-var status = <?= json_encode($status) ?> ;
-if(status=='inserted'){
-  swal("reservation registered!", "Thankyou for choosing us!", "success")
-}
-        </script>
+<script src="<?=base_url()?>dist/js/demo.js"></script>
+<script src="<?=base_url()?>dist/sweetalert.min.js"></script> 
+
+<script type="text/javascript">
+
+  var status = <?= isset($status) ?json_encode($status):"''";?>;
+  if(status)
+   {swal(status,"Thanks", "success");};
+
+  function delete_record(id) {
+        swal({
+                title             : "Are you sure?",
+                text              : "Once deleted, you will not be able to recover this record",
+                type              : "warning",
+                showCancelButton  : true,
+                confirmButtonColor: "#f44242",
+                confirmButtonText : "Yes, Delete!",
+                cancelButtonText  : "No, cancel",
+                closeOnConfirm    : false,
+                closeOnCancel     : false
+            },
+            function (isConfirm) {
+                //  event.preventDefault();
+                if (isConfirm) {
+                   // swal("Deleted!", "Record deleted", "success");
+                    window.location = "../delete/"+id;
+                } else {
+                    swal("Cancelled", "", "error");
+                    return false;
+                }
+            });
+        return false;
+    }
+
+
+ function completed(id) {
+        swal({
+                title             : "Are you sure?",
+                text              : "The reservtaion has been completed..?",
+                type              : "info",
+                showCancelButton  : true,
+                confirmButtonColor: "#3c8dbc",
+                confirmButtonText : "Yes, Mark as complete!",
+                cancelButtonText  : "No, cancel",
+                closeOnConfirm    : false,
+                closeOnCancel     : false
+            },
+            function (isConfirm) {
+                //  event.preventDefault();
+                if (isConfirm) {
+                   // swal("Deleted!", "Record deleted", "success");
+                    window.location = "../completed/"+id;
+                } else {
+                    swal("Cancelled", "", "error");
+                    return false;
+                }
+            });
+        return false;
+    }
+
+	 $(function () {
+    $('#example1').DataTable()
+    $('#example2').DataTable({
+      'paging'      : true,
+      'lengthChange': false,
+      'searching'   : false,
+      'ordering'    : true,
+      'info'        : true,
+      'autoWidth'   : false
+    })
+  })
+
+   //Date picker
+    $('#datepicker').datepicker({
+      autoclose: true,
+      format: 'dd/mm/yyyy',
+      startDate: '-3d'
+    });
+        //Timepicker
+    $('.timepicker').timepicker({
+      showInputs: false
+    })
+
+    $("#edit-btn").click(function() {
+       //$(".disabled").attr("disabled", "false");
+       $(".editable").prop('disabled', false);
+      // $("textarea").prop('disabled', false);
+       $("#edit-submit").show();
+       $("#edit-btn").hide();
+       $("#completed-btn").hide();
+  // alert( "Handler for .click() called." );
+});
+   
+</script>
+</footer>
+
+<!-- </div> -->
+<!-- ./wrapper -->
+
+<
 </body>
 </html>
+

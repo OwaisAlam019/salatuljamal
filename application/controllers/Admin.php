@@ -8,144 +8,73 @@ class Admin extends CI_Controller
 	function __construct()
 	{
          parent::__construct();	 
+         $this->load->model("reservation_model");
+          $this->load->model("messages_model");
 
-
-			
 	}
 
-	function index()
-	{
-        $data['login']=$this->session->flashdata('loginflag');
-        $this->load->view('login/login',$data);
-    }
+
+    function index()
+    {  
     
-     //authentication
-    function login()
-    {
-        if(isset($_POST))
+    $data["reservations"]=$this->reservation_model->count();
+    $data["messages"]=$this->messages_model->count();
+    if(isset($_SESSION['username']))
         {
-            if($_POST['username']=='admin' && $_POST['password']=='123'){
-            $_SESSION["username"]=$_POST['username'];
-            $_SESSION["password"]=$_POST['password'];
-            $this->load->model("reservation_model");
-            $this->load->view('admin/header');
-            $this->load->view('admin/reservations',$data);
-            $this->load->view('admin/footer',$data);
-            }
-            else
-            {
-                $this->session->set_flashdata('loginflag', 'false');
-                redirect(base_url().'admin');
-            }
+            
+             $this->load->view('admin/header');
+             $this->load->view('admin/aside');
+             $this->load->view('admin/dashboard',$data);
+             $this->load->view('admin/footer');
+         }
+       else if(!empty($_POST))
+        {
+            if ($_POST["username"]=='admin' && $_POST['password']=='admin') {
+                $_SESSION['username']=$_POST["username"];
+                $_SESSION['password']=$_POST["password"];
+                
+                $this->load->view('admin/header');
+                $this->load->view('admin/aside');
+                $this->load->view('admin/dashboard',$data);
+                $this->load->view('admin/footer');    
+                }
+                else
+                    redirect(base_url().'/admin');
         }
+        else
+            $this->load->view('login/login');
+                    
     }
-    
-    //to get list of reservations and display on admin panel
-    function reservations()
-	{
-      $this->load->model("reservation_model");
-      $data['reservations']=$this->reservation_model->get_reservations();
-      $this->load->view('admin/header');
-      $this->load->view('admin/reservations',$data);
-      $this->load->view('admin/footer');        	
-	}
-    
-    //to get details of a reservation when clicked by admin
-    function details($id)
-    {   
-        $data['row_id']=$id;
-        $this->load->model("reservation_model");
-        $data['details']=$this->reservation_model->get_details($id);
-        $details=$data['details'];
-        // echo "<pre>";
-        // var_dump($details);
-        // echo "</pre>";
-        // exit();
-        $this->load->view('admin/header');
-        $this->load->view('admin/details',$data);
-        $this->load->view('admin/footer');   
-    }
-
-     function msg_details($id)
-    {   
-        $data['row_id']=$id;
-        $this->load->model("reservation_model");
-        $data['msg_details']=$this->reservation_model->msg_details($id);
-        // echo "<pre>";
-        // var_dump($details);
-        // echo "</pre>";
-        // exit();
-        $this->load->view('admin/header');
-        $this->load->view('admin/msg_details',$data);
-        $this->load->view('admin/footer');   
-    }
-        function msg_delete($id)
-    {   
-        $data['row_id']=$id;
-        $this->load->model("reservation_model");
-        $data['msg_details']=$this->reservation_model->msg_delete($id);
-        // echo "<pre>";
-        // var_dump($data);
-        // echo "</pre>";
-        // exit();
+    function logout()
+    {
+        session_destroy();
         redirect(base_url().'admin');
-
-        $this->load->view('admin/header');
-        $this->load->view('admin/clientmessage',$data);
-        $this->load->view('admin/footer');   
+        
     }
-    
 
+    
     
 
  // to get list of client messages and display on admin panel
-    function client_message()
-    {
-       // echo "string";
-      $this->load->model("reservation_model");
-      $data['clientmessage']=$this->reservation_model->get_client_message();
-      // echo "<pre>";
-      // var_dump($data);
-      // echo "</pre>";
-      // exit();
-      $this->load->view('admin/header');
-      $this->load->view('admin/clientmessage',$data);
-      $this->load->view('admin/footer');            
-    }
-    
-
-
-
-
-
-
-
-
-    //to mark a reservation as completed by admin
-    function res_complete($id){
-      $this->load->model("reservation_model");
-      $this->reservation_model->res_complete($id);
-      $this->get_reservations(); 
-    }
     
     
-    function logout()
-    {
-        unset($_SESSION['username']);
-        unset($_SESSION['password']);
-        $this->session->flashdata('loginflag','false');
-        $this->admin();
-    }
+    
     
     function product()
     {
+         if(!isset($_SESSION["username"]))
+            redirect(base_url()."admin");
+
         $this->load->view('admin/header');
+        $this->load->view('admin/aside');
         $this->load->view('admin/add_product');
         $this->load->view('admin/footer');
     }
     
     function add_product()
     {
+         if(!isset($_SESSION["username"]))
+            redirect(base_url()."admin");
         
         if(!empty($_POST))
         {

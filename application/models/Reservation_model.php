@@ -12,69 +12,43 @@ class Reservation_model extends CI_model
 
 
 
-    function submit_msg($data){
-        // $this->db->trans_start();
-    //     var_dump($data);
-    // exit();
-		$this->db->insert('client_message',array( 'name'  => $data['contact-name'],
-											'email' => $data['contact-email'],
-											'phone' => $data['contact-phone'],
-                                            'subject' => $data['contact-subject'],
-											'msg' => $data['contact-message'],
-                                            
-                                            
-                                            ));
-		// $customer_id=$this->db->insert_id();
-}
-
-
-function msg_delete($id) {
-
-$this->db->where( 'msg_id',$id);
-$this->db->delete('client_message');
-}
-
-
-
-  public function get_client_message()
+    function count()
     {
-        // $this->db->select('msg_id,name,email,phone,subject,msg');
-        // $this->db->from('client_message');
-        // $this->db->join('customer', 'customer.id = reservations.customer_id');
-        $query=$this->db->get("client_message");
-        return $query->result_array();
-
+        $data["total"]=$this->db->count_all('reservations');
+        $this->db->where("status",0);
+        $this->db->from('reservations');
+        $data["pending"]   = $this->db->count_all_results();
+        $data["completed"] =  $data["total"] - $data["pending"];
+        return $data;
     }
 
-     public function msg_details($id)
+    function update($id,$data)
     {
-        // $this->db->select('msg_id,name,email,phone,subject,msg');
-        // $this->db->from('client_message');
-        // $this->db->join('customer', 'customer.id = reservations.customer_id');
-        $this->db->where('msg_id',$id);
-        $query=$this->db->get("client_message");
-        return $query->row();
+         // var_dump($data);
+         // exit();
+        $this->db->trans_start();
+        $update_data = array(
+                        'id'    => $id,
+                        'customer_id'    => $data["customer_id"],
+                        'date'  => date('Y-m-d', strtotime($data['date'])),
+                        'time'  => date('H:i:s',strtotime($data['time'])),
+                        'notes'  => $data['notes']
+                        );
 
+        $this->db->replace('reservations', $update_data);
+        $status=$this->db->trans_complete();
+        return $status;
     }
 
-// messgae detail ka function likhna ha
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    function completed($id)
+    {
+        $this->db->trans_start();
+        $this->db->set("status",1);
+        $this->db->where("id",$id);
+        $this->db->update("reservations");
+        $status=$this->db->trans_complete();
+        return $status;
+    }
 
 
 	function submit_reservation($data)
@@ -152,9 +126,10 @@ $this->db->delete('client_message');
     
     public function get_details($id)
     {
-        $this->db->select('reservations.notes as notes,reservations.date,reservations.time,c.name as name,c.email as email,c.phone as phone,cosmetics.facial as facial,cosmetics.eyebrow as eyebrow,cosmetics.microdermabrasion as micro,cosmetics.acne_treatment as acne,hd.wash as wash,hd.cut_finish as cut_finish,hd.blow_dries as blow,hd.hair_colouring as hairclr');
+        $this->db->select('reservations.notes as notes,reservations.date,reservations.time,reservations.id as reservation_id,reservations.customer_id,c.name as name,c.email as email,c.phone as phone,cosmetics.facial as facial,cosmetics.eyebrow as eyebrow,cosmetics.microdermabrasion as micro,cosmetics.acne_treatment as acne,hd.wash as wash,hd.cut_finish as cut_finish,hd.blow_dries as blow,hd.hair_colouring as hairclr');
         $this->db->from('reservations');
         $this->db->where('reservations.id',$id);
+        $this->db->where('reservations.status',0);
         $this->db->join('customer as c', 'c.id = reservations.customer_id');
         $this->db->join('cosmetics', 'cosmetics.reservation_id = reservations.id');
         $this->db->join('hairdressing as hd', 'hd.reservation_id = reservations.id');
@@ -164,24 +139,7 @@ $this->db->delete('client_message');
          // return $query->result_array();
 
     }
-	  public function login($data)
-    {
-          if($data['username']=='bilal'&& $data['password']=='123')
-          {
-              return true;
-          }
-          else
-          {
-              return false;
-          }
-    }
 
-	public function res_complete($id)
-    {
-        $data = array('status' => 1);
-        $this->db->where('id', $id);
-        $this->db->update('reservations', $data); 
-    }
     
     function add_product($data)
     {   

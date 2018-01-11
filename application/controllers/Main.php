@@ -13,7 +13,7 @@ class Main extends CI_controller
 
 	function index()
 	{
-       $data['status']=$this->session->flashdata('status');
+       $data['submitted']=$this->session->flashdata('submitted');
        $this->load->view('template/header');
        $this->load->view('template/index');
        $this->load->view('template/footer',$data);        	
@@ -24,27 +24,28 @@ class Main extends CI_controller
     //to navigate through different pages from home
     function pages($page)
 	{
-        $data['products']=$this->reservation_model->get_products();
+        //$data['products']=$this->reservation_model->get_products();
+        $data['submitted']=$this->session->flashdata('submitted');
         $this->load->view('template/header');
         $this->load->view('template/'.$page,$data); 
         $this->load->view('template/footer');
         
 	}
     
-    function product_detail($id)
-    {
-       $p=NULL;
+    // function product_detail($id)
+    // {
+    //    $p=NULL;
         
-        $data['ptv']=$this->reservation_model->product_detail($id);
-        $this->session->set_userdata($data['ptv']);
+    //     $data['ptv']=$this->reservation_model->product_detail($id);
+    //     $this->session->set_userdata($data['ptv']);
        
-        //product to view
+    //     //product to view
     
-        $this->load->view('template/header');
-        $this->load->view('template/shop-detail',$data); 
-        $this->load->view('template/footer');
+    //     $this->load->view('template/header');
+    //     $this->load->view('template/shop-detail',$data); 
+    //     $this->load->view('template/footer');
         
-    }
+    // }
     
     
     //to get the 'make a reservation' form
@@ -56,50 +57,19 @@ class Main extends CI_controller
     //to submit the reservation details
     function submit()
     {
-        // var_dump($_POST);
-        // exit();
-        if(!empty($_POST))
+         if(!empty($_POST))
         {
-            if(isset($_POST["submit_type"])){
-            $this->load->model("reservation_model");
-            $data['status']=$this->reservation_model->submit_reservation($_POST);
+            $data['status']=$this->reservation_model->submit_msg($_POST);
             if($data['status']==TRUE)
             {
-                $this->session->set_flashdata('status', 'inserted');    
-            }
+                $this->session->set_flashdata('submitted', 'Your message has been sent');    
             }
             else
-            {
-                $this->load->model("reservation_model");
-                $data['status']=$this->reservation_model->submit_msg($_POST);
-                if($data['status']==TRUE)
-                {
-                    $this->session->set_flashdata('status', 'inserted');    
-                }
-            }
-            redirect(base_url());
+                $this->session->set_flashdata('submitted', 'Message has not sent, please try again');    
         }
-    }
-
-
-
-
-
-
-
-
-
-
-
-
-    
-    //add to cart
-    function add2cart($id)
-    {
-        $data["cart"]=array();
-    $p=NULL;
         
-      
+     redirect(base_url()."main/pages/contact");
     }
+
 }
 ?>

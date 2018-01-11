@@ -31,7 +31,7 @@
           <!-- /.box -->
             
 
-            <a href=<?php echo base_url()?>admin/reservations><button class="btn btn-primary"><i class="fa fa-arrow"></i>go back</button></a>
+            <a href=<?php echo base_url()?>reservations><button class="btn btn-primary"><i class="fa fa-arrow"></i>go back</button></a>
          
           <!-- /.box -->
         </div>

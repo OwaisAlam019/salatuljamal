@@ -249,64 +249,64 @@
 							 <!--CATEGORY SECTION : end -->
 
 							<!-- CATEGORY SECTION : begin -->
-							<!--<section id="massages">
+							<section id="massages">
 
 								<h2>Massages</h2>
 
 								<div class="row">
 									<div class="col-sm-2">
 
-										 CATEGORY IMAGE : begin -->
-										<!--<p class="textalign-center margin-sides-auto max-width-180"><img src="<?=base_url()?>assets/images/service_04.jpg" class="rounded" alt="Massages"></p>-->
+										 <!--CATEGORY IMAGE : begin -->
+										<p class="textalign-center margin-sides-auto max-width-180"><img src="<?=base_url()?>assets/images/service_04.jpg" class="rounded" alt="Massages"></p>
 										<!-- CATEGORY IMAGE : end -->
 
-									<!--</div>-->
-									<!--<div class="col-sm-10">-->
+									</div>
+									<div class="col-sm-10">
 
 										<!-- SERVICES : begin -->
-										<!--<ul class="c-accordion">-->
-											<!--<li>
+										<ul class="c-accordion">
+											<li>
 												<h3 class="accordion-title">Aromatherapy Massage</h3>
-												<p class="accordion-price">$10.50</p>
-												<div class="accordion-content">
+												<p class="accordion-price">PKR 1000</p>
+												<!-- <div class="accordion-content">
 													<p>In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum.</p>
-												</div>
+												</div> -->
 											</li>
 											<li>
 												<h3 class="accordion-title">Exotic Massages</h3>
-												<p class="accordion-price">$19.99</p>
-												<div class="accordion-content">
+												<p class="accordion-price">PKR 1900</p>
+												<!-- <div class="accordion-content">
 													<p>Nam quam nunc, blandit vel, luctus pulvinar, hendrerit id, lorem. Maecenas nec odio et ante tincidunt tempus. Donec vitae sapien ut libero venenatis faucibus. Nullam quis ante.</p>
-												</div>
+												</div> -->
 											</li>
 											<li>
 												<h3 class="accordion-title">Swedish Massage</h3>
-												<p class="accordion-price">$14.99</p>
-												<div class="accordion-content">
+												<p class="accordion-price">PKR 1500</p>
+												<!-- <div class="accordion-content">
 													<p>Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu.</p>
-												</div>
-											</li>-->
-											<!--<li>
+												</div> -->
+											</li>
+											<li>
 												<h3 class="accordion-title">Hot Stone Massage</h3>
-												<p class="accordion-price">$14.99</p>
-												<div class="accordion-content">
+												<p class="accordion-price">PKR 1500</p>
+												<!-- <div class="accordion-content">
 													<p>Duis leo. Sed fringilla mauris sit amet nibh. Donec sodales sagittis magna. Sed consequat, leo eget bibendum sodales, augue velit cursus nunc,</p>
-												</div>
+												</div> -->
 											</li>
 											<li>
 												<h3 class="accordion-title">Sports Massage </h3>
-												<p class="accordion-price">$14.99</p>
-												<div class="accordion-content">
+												<p class="accordion-price">PKR 1500</p>
+												<!-- <div class="accordion-content">
 													<p>Duis leo. Sed fringilla mauris sit amet nibh. Donec sodales sagittis magna. Sed consequat, leo eget bibendum sodales, augue velit cursus nunc,</p>
-												</div>
+												</div> -->
 											</li>
-										</ul>-->
+										</ul>
 										<!-- SERVICES : end -->
-<!--
+
 									</div>
 								</div>
 
-							</section>-->
+							</section>
 							<!-- CATEGORY SECTION : end -->
 
 							<!-- CTA MESSAGE SECTION : begin -->
