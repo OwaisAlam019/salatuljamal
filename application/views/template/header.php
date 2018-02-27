@@ -27,7 +27,7 @@
 
 					<!-- HEADER BRANDING : begin -->
 					<div class="header-branding">
-						<a href="index.html"><img src="<?=base_url()?>assets/images/logo3.png" alt="صالة الجمال Beauty Lounge"  width="300" height="30"></a>
+						<a href="index.html"><img src="<?=base_url()?>assets/images/Logo1.png" alt="صالة الجمال Beauty Lounge"  width="300" height="200"></a>
 					</div>
 					<!-- HEADER BRANDING : end -->
 
@@ -44,7 +44,6 @@
                                         <a href=<?php echo base_url()?>>HOME</a>
                                     </span>
                                 </li>
-                                
                                 <li class="nav-btn">
                                     <span>
                                         <a href=<?php echo base_url()?>main/pages/services>SERVICES</a>

@@ -36,6 +36,9 @@
 								<div class="thumb"><a href="<?=base_url()?>assets/images/gallery_01.jpg" class="lightbox" data-lightbox-group="gallery"><img src="<?=base_url()?>assets/images/gallery_01.jpg" alt=""></a></div>
 								<div class="thumb"><a href="<?=base_url()?>assets/images/gallery_02.jpg" class="lightbox" data-lightbox-group="gallery"><img src="<?=base_url()?>assets/images/gallery_02.jpg" alt=""></a></div>
 								<div class="thumb"><a href="<?=base_url()?>assets/images/gallery_03.jpg" class="lightbox" data-lightbox-group="gallery"><img src="<?=base_url()?>assets/images/gallery_03.jpg" alt=""></a></div>
+								<div class="thumb"><a href="<?=base_url()?>assets/images/gallery_03.jpg" class="lightbox" data-lightbox-group="gallery"><img src="<?=base_url()?>assets/images/gallery_03.jpg" alt=""></a></div>
+								<div class="thumb"><a href="<?=base_url()?>assets/images/Gallery1.jpg" class="lightbox" data-lightbox-group="gallery"><img src="<?=base_url()?>assets/images/Gallery1.jpg" alt=""></a></div>
+								<div class="thumb"><a href="<?=base_url()?>assets/images/Gallery2.jpg" class="lightbox" data-lightbox-group="gallery"><img src="<?=base_url()?>assets/images/Gallery2.jpg" alt=""></a></div>
 							</div>
 						</div>
 						<!-- GALLERY :   src="<?=base_url()?>assets/images/service_01.jpg end -->                                                                                    
