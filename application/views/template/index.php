@@ -28,7 +28,7 @@
 									<div class="slide-content various-content textalign-right valign-middle">
 
 			
-										<h3 Style="font-weight:600;">10% Off For Online Reservation<br><a href="<?=base_url()?>application/views/template/reservation.php" class="m-open-ajax-modal">Make a Reservation</a></h3>
+										<h3 Style="font-weight:600;">10% Off For Online Reservation<br><a href="<?=base_url()?>main/load_modal" class="m-open-ajax-modal">Make a Reservation</a></h3>
 
 									</div>
 								</div>

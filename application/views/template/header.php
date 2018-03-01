@@ -27,7 +27,7 @@
 
 					<!-- HEADER BRANDING : begin -->
 					<div class="header-branding">
-						<a href="index.html"><img src="<?=base_url()?>assets/images/Logo1.png" alt="صالة الجمال Beauty Lounge"  width="300" height="200"></a>
+						<a href="<?= base_url();?>"><img src="<?=base_url()?>assets/images/Logo1.png" alt="صالة الجمال Beauty Lounge"  width="300" height="200"></a>
 					</div>
 					<!-- HEADER BRANDING : end -->
 
